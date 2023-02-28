@@ -1,3 +1,7 @@
+# Manual invocation of the ETH Engine API for testing CL integration
+
+
+
 # Prerequisites
 
 This tool assumes geth and bootnode executables are present in $PATH . If not, then follow the below commands to install:
@@ -80,7 +84,7 @@ eth.sendTransaction({from:`${eth.coinbase}`, to:`${eth.accounts[0]}`, value: web
 web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
 ```
 
-## Executing the consensus engine by hand
+## Executing the Engine API by hand
 
 The scripts setup a single node eth setup with 3 get clients and one bootp discover process.
 The consensus engine is however stopped. i.e. the clique network is not proposing any blocks.
