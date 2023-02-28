@@ -136,3 +136,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","metho
 
 Run forkchoice update rule and set the new head to the block we executed in this iteration. 
 Goto step1.
+
+
+
+### Resource
+https://notes.ethereum.org/@MariusVanDerWijden/rkwW3ceVY
+https://medium.com/hackernoon/setup-your-own-private-proof-of-authority-ethereum-network-with-geth-9a0a3750cda8  [OUTDATED, necessary fixups in this repo]
