@@ -9,7 +9,7 @@ const spawn = require('child_process').spawn;
 
 const web3 = new Web3();
 const outputDir = './output'
-const geth_binary = '../go-ethereum/build/bin/geth'
+const geth_binary = '/home/faraz/wrk/apk/go-ethereum/build/bin/geth'
 
 // Executes a command
 const executeCommand = async (cmd) => {
