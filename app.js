@@ -187,34 +187,20 @@ console.log(authorityAccounts);
       '--http.port',
       `${rpcPort}`,
       '--http.api',
-      `engine,personal,db,eth,net,web3,txpool,miner`,
+      'engine',
       '--bootnodes',
       `enode://${bootnodePubkey}@127.0.0.1:30210`,
       '--networkid',
       '1515',
-      '--gpo.maxprice',
-      `1`,
       '--verbosity',
       '3',
       '--miner.etherbase',
       `${authorityAccounts[accountidx]}`,
       '--authrpc.port',
       `${authrpcport}`,
-      '--preload',
-      './minewhenneeded.js',
       '--rpc.enabledeprecatedpersonal'
     ]
 
-    if(count <= authorities) {
-      args = args.concat([
-        '--unlock',
-        '0',
-        '--password',
-        'password.txt',
-        '--mine',
-        '--allow-insecure-unlock'
-      ])
-    }
 
     console.log(args)
     startBGProcess(`${geth_binary}`, args, `./node${count}/console.log`)
@@ -243,7 +229,7 @@ const newNetworkQuestions = [
     type : 'number',
     name : 'authorities',
     message : 'Enter total authority nodes ...',
-    default: 2,
+    default: 1,
     validate: (authorities) => {
       if (authorities > 0) {
         return true;
@@ -256,7 +242,7 @@ const newNetworkQuestions = [
     type : 'number',
     name : 'peers',
     message : 'Enter total peer nodes ...',
-    default: 1,
+    default: 0,
     validate: (peers) => {
       if (peers < 0) {
         return "Error: peer count should be greater than equal to 0"
