@@ -116,8 +116,10 @@ let initNetwork = async (authorities, peers, password, blockTime) => {
       authorityAccounts.push('0x' + JSON.parse(fs.readFileSync(`node${count}/keystore/${files[0]}`, { encoding: 'utf8' })).address);
     }
 
+    let prefundAccounts = authorityAccounts;
+    prefundAccounts.push("0x4A7F1BBD8B60D55837a1FBcD67D758d70e944E3A");
     //Generate genesis file
-    let genesis = generateGenesis(blockTime, authorityAccounts, authorityAccounts);
+    let genesis = generateGenesis(blockTime, authorityAccounts, prefundAccounts);
     fs.writeFileSync('genesis.json', genesis, 'utf8');
 
     //Initialize the nodes with genesis file
