@@ -10,6 +10,7 @@ const spawn = require('child_process').spawn;
 const web3 = new Web3();
 const outputDir = './output'
 const geth_binary = '/home/faraz/wrk/apk/go-ethereum/build/bin/geth'
+const jwt = '/home/faraz/wrk/apkws/ethlaunch/jwtsecret'
 
 // Executes a command
 const executeCommand = async (cmd) => {
@@ -204,6 +205,8 @@ console.log(authorityAccounts);
       `${authorityAccounts[accountidx]}`,
       '--authrpc.port',
       `${authrpcport}`,
+      '--authrpc.jwtsecret',
+      `${jwt}`,
       '--rpc.enabledeprecatedpersonal'
     ]
 
@@ -212,7 +215,7 @@ console.log(authorityAccounts);
     startBGProcess(`${geth_binary}`, args, `./node${count}/console.log`)
 
     count == 1 ? console.log(`Successfully started the network with ${authorities} authority and ${peers} peer nodes. Here are commands to connect to running nodes: \n`) : null;
-    console.log(`Node ${count} (${count <= authorities ? 'Authority' : 'Peer'}): \n IPC Attach: ${geth_binary} attach ${outputDir}/node${count}/geth.ipc \n RPC Endpoint: localhost:${rpcPort}`)
+    console.log(`Node ${count} (${count <= authorities ? 'Authority' : 'Peer'}): \n IPC Attach: ${geth_binary} [--exec eth.blockNumber] attach ${outputDir}/node${count}/geth.ipc \n RPC Endpoint: localhost:${rpcPort}`)
 
     port++;
     rpcPort++;
