@@ -203,6 +203,8 @@ console.log(authorityAccounts);
       '3',
       '--miner.etherbase',
       `${authorityAccounts[accountidx]}`,
+      '--miner.extradata',
+      "z13",
       '--authrpc.port',
       `${authrpcport}`,
       '--authrpc.jwtsecret',
