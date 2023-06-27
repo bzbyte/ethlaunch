@@ -9,7 +9,7 @@ const spawn = require('child_process').spawn;
 
 const web3 = new Web3();
 const outputDir = './output'
-const geth_binary = '/home/faraz/wrk/apk/go-ethereum/build/bin/geth'
+const geth_binary = '/home/faraz/wrk/apkws/go-ethereum/build/bin/geth'
 const jwt = '/home/faraz/wrk/apkws/ethlaunch/jwtsecret'
 
 // Executes a command
