@@ -119,6 +119,7 @@ let initNetwork = async (authorities, peers, password, blockTime) => {
 
     let prefundAccounts = authorityAccounts;
     prefundAccounts.push("0x4A7F1BBD8B60D55837a1FBcD67D758d70e944E3A");
+    prefundAccounts.push("0x25dB64e0b5B5Cd5726B55656f354fAB8cFd32ed0");
     //Generate genesis file
     let genesis = generateGenesis(blockTime, authorityAccounts, prefundAccounts);
     fs.writeFileSync('genesis.json', genesis, 'utf8');
